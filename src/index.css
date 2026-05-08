@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Pro Licious — warm, premium design system. All colors HSL. */
+
+@layer base {
+  :root {
+    /* Cream / warm neutrals */
+    --background: 36 40% 96%;
+    --foreground: 20 35% 12%;
+
+    --card: 36 50% 98%;
+    --card-foreground: 20 35% 12%;
+
+    --popover: 36 50% 98%;
+    --popover-foreground: 20 35% 12%;
+
+    /* Deep red — primary brand */
+    --primary: 358 70% 38%;
+    --primary-foreground: 36 50% 98%;
+    --primary-glow: 14 85% 58%;
+
+    /* Warm brown — secondary */
+    --secondary: 24 35% 22%;
+    --secondary-foreground: 36 50% 98%;
+
+    --muted: 32 25% 90%;
+    --muted-foreground: 24 15% 38%;
+
+    /* Soft orange accent */
+    --accent: 28 90% 60%;
+    --accent-foreground: 20 35% 12%;
+
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 36 50% 98%;
+
+    --success: 140 50% 38%;
+    --success-foreground: 36 50% 98%;
+
+    --border: 28 25% 85%;
+    --input: 28 25% 88%;
+    --ring: 358 70% 38%;
+
+    --radius: 1rem;
+
+    /* Gradients */
+    --gradient-warm: linear-gradient(135deg, hsl(358 70% 38%) 0%, hsl(14 85% 58%) 50%, hsl(32 90% 62%) 100%);
+    --gradient-ember: linear-gradient(180deg, hsl(20 35% 12%) 0%, hsl(358 50% 22%) 100%);
+    --gradient-cream: linear-gradient(180deg, hsl(36 60% 98%) 0%, hsl(32 35% 92%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(36 60% 99% / 0.9), hsl(32 30% 94% / 0.7));
+    --gradient-hero: radial-gradient(ellipse at top right, hsl(14 85% 58% / 0.25), transparent 60%),
+                     radial-gradient(ellipse at bottom left, hsl(358 70% 38% / 0.2), transparent 55%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -8px hsl(20 35% 12% / 0.12);
+    --shadow-warm: 0 12px 40px -12px hsl(358 70% 38% / 0.35);
+    --shadow-glow: 0 0 60px hsl(14 85% 58% / 0.4);
+    --shadow-elevated: 0 24px 60px -20px hsl(20 35% 12% / 0.25);
+
+    /* Glass */
+    --glass-bg: hsl(36 60% 99% / 0.6);
+    --glass-border: hsl(36 50% 98% / 0.4);
+
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    --sidebar-background: 36 40% 96%;
+    --sidebar-foreground: 20 35% 12%;
+    --sidebar-primary: 358 70% 38%;
+    --sidebar-primary-foreground: 36 50% 98%;
+    --sidebar-accent: 32 25% 90%;
+    --sidebar-accent-foreground: 20 35% 12%;
+    --sidebar-border: 28 25% 85%;
+    --sidebar-ring: 358 70% 38%;
+  }
+
+  .dark {
+    --background: 20 30% 8%;
+    --foreground: 36 50% 96%;
+    --card: 20 28% 12%;
+    --card-foreground: 36 50% 96%;
+    --popover: 20 28% 12%;
+    --popover-foreground: 36 50% 96%;
+    --primary: 14 85% 58%;
+    --primary-foreground: 20 30% 8%;
+    --primary-glow: 28 90% 60%;
+    --secondary: 24 25% 18%;
+    --secondary-foreground: 36 50% 96%;
+    --muted: 24 20% 16%;
+    --muted-foreground: 32 15% 65%;
+    --accent: 28 90% 60%;
+    --accent-foreground: 20 30% 8%;
+    --border: 24 20% 20%;
+    --input: 24 20% 20%;
+    --ring: 14 85% 58%;
+    --glass-bg: hsl(20 28% 12% / 0.6);
+    --glass-border: hsl(36 50% 96% / 0.1);
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  html { scroll-behavior: smooth; }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-image: var(--gradient-hero);
+    background-attachment: fixed;
+  }
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Playfair Display', Georgia, serif;
+    letter-spacing: -0.01em;
+  }
+}
+
+@layer components {
+  .glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(160%);
+    -webkit-backdrop-filter: blur(20px) saturate(160%);
+    border: 1px solid var(--glass-border);
+  }
+  .glass-card {
+    background: var(--gradient-card);
+    backdrop-filter: blur(16px) saturate(150%);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    border: 1px solid hsl(var(--border) / 0.6);
+    box-shadow: var(--shadow-soft);
+  }
+  .text-gradient {
+    background: var(--gradient-warm);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .live-dot {
+    @apply relative inline-block w-2 h-2 rounded-full bg-success;
+  }
+  .live-dot::after {
+    content: '';
+    @apply absolute inset-0 rounded-full bg-success;
+    animation: ping 1.6s cubic-bezier(0, 0, 0.2, 1) infinite;
+  }
+}
+
+@keyframes ping {
+  75%, 100% { transform: scale(2.4); opacity: 0; }
+}
