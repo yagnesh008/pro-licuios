@@ -9,7 +9,7 @@ import logo from "@/assets/logo.png";
 import { toast } from "sonner";
 
 const DELIVERY_EMAIL = (import.meta.env.VITE_DELIVERY_EMAIL ?? "rider@prolicious.in").toLowerCase();
-const DELIVERY_PASSWORD = import.meta.env.VITE_DELIVERY_PASSWORD ?? "rider@123";
+const DELIVERY_PASSWORD = import.meta.env.VITE_DELIVERY_PASSWORD ?? "123456";
 
 const DeliveryLogin = () => {
   const [contact, setContact] = useState("");

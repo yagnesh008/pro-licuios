@@ -12,12 +12,12 @@ import { toast } from "sonner";
 // Using Vite env vars with safe fallbacks for demo.
 const STAFF: Record<string, { password: string; role: Role; name: string; vendorId?: string }> = {
   [import.meta.env.VITE_ADMIN_EMAIL ?? "admin@prolicious.in"]: {
-    password: import.meta.env.VITE_ADMIN_PASSWORD ?? "admin@123",
+    password: import.meta.env.VITE_ADMIN_PASSWORD ?? "123456",
     role: "admin",
     name: "Admin",
   },
   [import.meta.env.VITE_VENDOR_EMAIL ?? "vendor@prolicious.in"]: {
-    password: import.meta.env.VITE_VENDOR_PASSWORD ?? "vendor@123",
+    password: import.meta.env.VITE_VENDOR_PASSWORD ?? "123456",
     role: "vendor",
     name: "Coastal Catch Co.",
     vendorId: "v1",

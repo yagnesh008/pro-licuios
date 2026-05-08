@@ -9,7 +9,7 @@ import logo from "@/assets/logo.png";
 import { toast } from "sonner";
 
 const ADMIN_EMAIL = (import.meta.env.VITE_ADMIN_EMAIL ?? "admin@prolicious.in").toLowerCase();
-const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD ?? "admin@123";
+const ADMIN_PASSWORD = import.meta.env.VITE_ADMIN_PASSWORD ?? "123456";
 
 const AdminLogin = () => {
   const [contact, setContact] = useState("");
